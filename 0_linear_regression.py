@@ -26,8 +26,8 @@ ax1 = fig.add_subplot(121)
 plt.plot(all_rating, all_result.fittedvalues, c="r", linewidth=4)
 # 散点图
 plt.scatter(all_rating, true_point, c="b", s=5)
-plt.xlabel("average rating")
-plt.ylabel("average point per game")
+plt.xlabel("rating")
+plt.ylabel("point")
 plt.title("Simple Linear Regression")
 
 # 多元参数线性回归
