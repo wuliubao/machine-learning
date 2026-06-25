@@ -2,7 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
-# 使用StatsModels库OLS训练
+#
+# lib: StatModels 偏解释性，有统计意义，类似R语言，偏研究类、论文
+# model: Linear Regression / OLS 最小二乘法ordinary least squares
+#
 
 # 获取数据
 football_df = pd.read_table('dataset/premier_league_data.csv')
