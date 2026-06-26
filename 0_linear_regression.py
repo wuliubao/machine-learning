@@ -9,7 +9,7 @@ import statsmodels.api as sm
 
 # STEP1 特征工程
 football_df = pd.read_table('dataset/premier_league_data.csv')
-# 真实积分 y
+# F.C.真实积分 y
 true_point = football_df.iloc[:, 5] / 38
 # F.C.整体评分 x
 all_rating = football_df.iloc[:, 4]
@@ -29,10 +29,12 @@ position_rating = football_df.iloc[:, [0, 1, 2, 3]]
 
 # 单个参数线性回归
 all_rating_add = sm.add_constant(all_rating)
+# y = ax + b
 all_result = sm.OLS(true_point, all_rating_add).fit()
 
 # 多元参数线性回归
 position_rating_add = sm.add_constant(position_rating)
+# y = a1x1 + a2x2 + a3x3 + a4x4
 position_result = sm.OLS(true_point, position_rating_add).fit()
 
 # STEP4
@@ -52,9 +54,8 @@ plt.plot(all_rating, all_result.fittedvalues, c="r", linewidth=4)
 # 散点图
 plt.scatter(all_rating, true_point, c="b", s=5)
 plt.xlabel("F.C.整体评分")
-plt.ylabel("真实积分")
+plt.ylabel("F.C.真实积分")
 plt.title("一元线性回归")
-
 
 # 添加第2个子图来
 ax2 = fig.add_subplot(122)
